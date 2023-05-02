@@ -1,0 +1,27 @@
+type Employee {
+	id: ID!
+	name: String!
+	phone: String!
+	department: Department!
+}
+
+type Department {
+	id: ID!
+	name: String!
+	employees: [Employee]!
+}
+
+input CreateEmployeeInput {
+	name: String!
+	phone: String!
+	department_id: Int!
+	skills: [Int]!
+}
+
+type Query {
+	getAllEmploye : [Employee]!
+}
+
+type Mutation {
+	createEmployee(input: CreateEmployeeInput!): Employee
+}
